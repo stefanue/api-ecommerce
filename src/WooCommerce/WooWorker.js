@@ -134,7 +134,7 @@ export default class WooWorker {
       const json = response.json();
 
       if (json.id != 'undefined') {
-        this._api.post(`orders/${json.id}`, {status: 'processing'});
+        this._api.post(`orders/${json.id}`, { status: 'processing' });
       }
 
       return json;
@@ -232,9 +232,9 @@ export default class WooWorker {
       const json = await response.json();
 
       if (json.id != 'undefined') {
-        this._api.post(`orders/${json.id}`, {status: 'processing'});
+        this._api.post(`orders/${json.id}`, { status: 'processing' });
       }
-      
+
       if (json.code === undefined) {
         callback(json);
       } else {
@@ -283,7 +283,7 @@ export default class WooWorker {
   static getProductRelated = async product => {
     try {
       const data = {
-        include: [product]
+        exclude: [product.id]
       };
       const response = await this._api.get("products", data);
       return response.json();
