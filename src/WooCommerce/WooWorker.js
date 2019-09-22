@@ -254,7 +254,6 @@ export default class WooWorker {
     };
 
     static processPayment = async(orderId, token, callback) => {
-
         const data = {
             order_id: orderId,
             payment_method: 'stripe',
@@ -267,7 +266,7 @@ export default class WooWorker {
             if (json.code === undefined) {
                 callback(JSON.stringify(json.code));
             } else {
-                return response.json();
+                callback(json)
             }
         } catch (error) {
             warn(error);
