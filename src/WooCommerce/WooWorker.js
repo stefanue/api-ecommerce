@@ -232,7 +232,7 @@ export default class WooWorker {
             const json = await response.json();
 
             if (json.id != 'undefined') {
-                this._api.post(`orders/${json.id}`, { status: 'processing' });
+                this._api.post(`orders/${json.id}`, { status: 'pending' });
             }
 
             if (json.code === undefined) {
