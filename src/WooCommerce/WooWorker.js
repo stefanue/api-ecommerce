@@ -1,6 +1,4 @@
 /**
- * Created by InspireUI on 4/07/2018.
- *  luyxtran264@gmail.com
  * @format
  */
 
@@ -32,7 +30,7 @@ export default class WooWorker {
             console.log(error);
         }
     };
-    static getCategories = async() => {
+    static getCategories = async () => {
         try {
             const response = await this._api.get("products/categories", {
                 hide_empty: true,
@@ -61,7 +59,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static getCustomers = async(id) => {
+    static getCustomers = async (id) => {
         try {
             const response = await this._api.get(`customers`);
             return response.json();
@@ -69,7 +67,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static productsByCategoryId = async(category, per_page, page, filter) => {
+    static productsByCategoryId = async (category, per_page, page, filter) => {
         try {
             const response = await this._api.get("products", {
                 category,
@@ -84,7 +82,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static productsByCategoryTag = async(
+    static productsByCategoryTag = async (
         category,
         tag,
         featured,
@@ -104,15 +102,15 @@ export default class WooWorker {
                 order: "desc"
             };
             if (category != "") {
-                params = {...params, category };
+                params = { ...params, category };
             } else if (tag != "") {
-                params = {...params, tag };
+                params = { ...params, tag };
             } else if (featured) {
-                params = {...params, featured };
+                params = { ...params, featured };
             } else if (onSale) {
-                params = {...params, on_sale: onSale };
+                params = { ...params, on_sale: onSale };
             } else if (products && products.length > 0) {
-                params = {...params, include: products };
+                params = { ...params, include: products };
             }
             const response = await this._api.get("products", params);
             return response.json();
@@ -142,7 +140,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static updateOrder = async(data, id) => {
+    static updateOrder = async (data, id) => {
         try {
             const response = await this._api.post(`orders/${id}`, data);
             return response.json();
@@ -150,7 +148,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static productsByTagId = async(tag, per_page, page) => {
+    static productsByTagId = async (tag, per_page, page) => {
         try {
             const response = await this._api.get("products", {
                 tag,
@@ -163,7 +161,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static productsByName = async(name, per_page, page, filter = {}) => {
+    static productsByName = async (name, per_page, page, filter = {}) => {
         try {
             const response = await this._api.get("products", {
                 search: name,
@@ -177,7 +175,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static productSticky = async(per_page, page, tagIdBanner = 273) => {
+    static productSticky = async (per_page, page, tagIdBanner = 273) => {
         try {
             const response = await this._api.get("products", {
                 tag: tagIdBanner,
@@ -190,7 +188,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static getAllProducts = async(
+    static getAllProducts = async (
         per_page,
         page,
         order = "desc",
@@ -213,7 +211,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static ordersByCustomerId = async(id, per_page, page) => {
+    static ordersByCustomerId = async (id, per_page, page) => {
         try {
             const data = {
                 customer: id,
@@ -226,7 +224,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static createNewOrder = async(data, callback, failCallBack) => {
+    static createNewOrder = async (data, callback, failCallBack) => {
         try {
             const response = await this._api.post("orders", data);
             const json = await response.json();
@@ -244,7 +242,7 @@ export default class WooWorker {
             console.log(error);
         }
     };
-    static getPayments = async() => {
+    static getPayments = async () => {
         try {
             const response = await this._api.get("payment_gateways");
             return response.json();
@@ -253,7 +251,7 @@ export default class WooWorker {
         }
     };
 
-    static processPayment = async(orderId, token, callback) => {
+    static processPayment = async (orderId, token, callback) => {
         const data = {
             order_id: orderId,
             payment_method: 'stripe',
@@ -273,7 +271,7 @@ export default class WooWorker {
         }
     };
 
-    static setOrderStatus = async(orderId, status, callback) => {
+    static setOrderStatus = async (orderId, status, callback) => {
         try {
             const response = await this._api.post(`orders/${orderId}`, { status });
             const json = await response.json();
@@ -286,7 +284,7 @@ export default class WooWorker {
             console.log(error);
         }
     };
-    static productVariant = async(product, per_page, page) => {
+    static productVariant = async (product, per_page, page) => {
         try {
             const data = {
                 per_page,
@@ -312,7 +310,7 @@ export default class WooWorker {
             console.log(err);
         }
     };
-    static getAllCouponCode = async() => {
+    static getAllCouponCode = async () => {
         try {
             const response = await this._api.get("coupons");
             return response.json();
@@ -357,7 +355,7 @@ export default class WooWorker {
         }
     };
 
-    static getTags = async() => {
+    static getTags = async () => {
         try {
             const response = await this._api.get("products/tags", {
                 hide_empty: true,
@@ -371,7 +369,7 @@ export default class WooWorker {
         }
     };
 
-    static getBrands = async() => {
+    static getBrands = async () => {
         try {
             const response = await this._api.get("brands", {
                 hide_empty: true,
