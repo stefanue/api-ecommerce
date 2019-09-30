@@ -140,6 +140,16 @@ export default class WooWorker {
             console.log(err);
         }
     };
+
+    static refundOrder = async (data, id) => {
+        try {
+            const response = await this._api.post(`orders/${id}/refunds`, data);
+            return response.json();
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     static updateOrder = async (data, id) => {
         try {
             const response = await this._api.post(`orders/${id}`, data);
