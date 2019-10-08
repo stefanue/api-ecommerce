@@ -158,6 +158,18 @@ export default class WooWorker {
             console.log(err);
         }
     };
+
+    static deleteOrder = async (id) => {
+        try {
+            const response = await this._api.delete(`orders/${id}`, {
+                force: true
+            });
+            return response.json();
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     static productsByTagId = async (tag, per_page, page) => {
         try {
             const response = await this._api.get("products", {
