@@ -159,6 +159,15 @@ export default class WooWorker {
         }
     };
 
+    static updateOrderMeta = async (id, data) => {
+        try {
+            const response = await this._api.post(`orders/${id}`, data);
+            return response.json();
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     static deleteOrder = async (id) => {
         try {
             const response = await this._api.delete(`orders/${id}`, {
