@@ -440,4 +440,18 @@ export default class WooWorker {
             console.error(["err remove product", err]);
         }
     };
+
+    static addOrderNote = async (orderId, note, callback) => {
+        try {
+            const response = await this._api.post(`orders/${orderId}/notes`, { note });
+            const json = await response.json();
+            if (json.code === undefined) {
+                callback(JSON.stringify(json.code));
+            } else {
+                console.log(json);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 }
