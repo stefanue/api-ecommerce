@@ -14,7 +14,7 @@
     "dependencies": {
         "firebase": "^9.7.0",
         "lodash": "^4.17.21",
-        "oauth-1.0a": "^2.2.6",
+        "oauth-1.0a": "1.0.1",
         "redux-actions": "^2.6.5"
     },
     "keywords": [
