@@ -12,10 +12,10 @@
         "url": "https://github.com/stefanue/api-ecommerce/issues"
     },
     "dependencies": {
-        "firebase": "^6.2.3",
-        "lodash": "4.17.15",
-        "oauth-1.0a": "1.0.1",
-        "redux-actions": "^2.6.4"
+        "firebase": "^9.7.0",
+        "lodash": "^4.17.21",
+        "oauth-1.0a": "^2.2.6",
+        "redux-actions": "^2.6.5"
     },
     "keywords": [
         "react-native-wordpress",
