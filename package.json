@@ -12,7 +12,7 @@
         "url": "https://github.com/stefanue/api-ecommerce/issues"
     },
     "dependencies": {
-        "firebase": "^5.2.0",
+        "firebase": "^6.2.3",
         "lodash": "4.17.15",
         "oauth-1.0a": "1.0.1",
         "redux-actions": "^2.6.4"
